@@ -66,6 +66,21 @@ router.get("/user/:id", async(req,res)=>{
   return res.status(200).json(user);
 });
 
+// G E T  U S E R  C A S H
+router.get("/user/:id/cash", async(req,res)=>{
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json({ cash: user.cash });
+  } catch (error) {
+    console.error("Error fetching user cash:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
 // U P D A T E  C A S H 
 router.patch("/user/:id/updateCash", async (req, res) => {
   try {

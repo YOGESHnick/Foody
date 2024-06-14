@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(
 	session({
-	  secret: 'ennoda-secret-key',
+	  secret: 'your-secret-key',
 	  resave: false,
 	  saveUninitialized: true,
 	})
@@ -49,8 +49,8 @@ app.post('/api/auth/verifyToken', verifyToken, (req, res) => {
 });
 /// L O G I N   H A N D L E R 
 app.use("/api/auth", userRoute);
-app.use("/api/hotels", verifyToken, hotelRoute);
-app.use("/api/foods", verifyToken, foodRoute);
+app.use("/api/hotels", hotelRoute);
+app.use("/api/foods", foodRoute);
 
 
 mongoose.connect(

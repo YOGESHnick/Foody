@@ -25,3 +25,15 @@ button {
 h3 {
   margin-top: 20px;
 }
+
+.food-item{
+  background-color: antiquewhite;
+  padding: auto;
+  width: 400px;
+  text-align: center;
+  justify-content: center;
+}
+.food-item img{
+  width: 300px;
+  height: auto;
+}
