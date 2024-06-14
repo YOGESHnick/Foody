@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const userId=useGetUserId();
 
-  console.log(userId);
+  // console.log(userId);
 
   const loginHandler = async (event) => {
     event.preventDefault();
@@ -27,8 +27,7 @@ const Login = () => {
       // Store token in localStorage, but store aagala....but works #1. IF IT WORKS, DON'T TOUCH IT
       localStorage.setItem('userId', userId);
       localStorage.setItem('userToken', token);
-
-      navigate("/diagnose");
+      navigate("/home");
 
     } catch (error) {
       console.log(error);
@@ -39,15 +38,14 @@ const Login = () => {
     <div className="login">
       <div className="form">
         <div className="left">
-          <h3>HealthBub</h3>
+          <h3>Foody</h3>
         </div>
         <form onSubmit={loginHandler}>
-          {/* <img src="logo.png" className="logo" alt="logo" /> */}
           <input type="text" placeholder="Email id" value={email} onChange={(event) => setEmail(event.target.value)} />
           <input type="password" placeholder="Enter password" value={password} onChange={(event) => setPassword(event.target.value)} />
           <button>Login</button>
           <br />
-          <p className="newUser" >New to the Bubble? <a className="newUser" href="/register"> Join us </a></p>
+          <p className="newUser" >Need instant Food? <a className="newUser" href="/register"> Join us </a></p>
         </form>
       </div>
     </div>
