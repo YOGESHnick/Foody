@@ -134,7 +134,7 @@ import FoodItem from '../components/FoodItem';
 import '../App.css';
 
 const Home = ({ onAddToCart }) => {
-  const [foods, setFoods] = useState([]);
+  const [foods, setFoods] = useState([]); 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true); // Introduce loading state
 

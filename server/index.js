@@ -43,14 +43,14 @@ const verifyToken = (req, res, next) => {
       return res.status(401).json({ message: "Invalid token." });
     }
   };
+
 app.post('/api/auth/verifyToken', verifyToken, (req, res) => {
-  // If middleware passed, token is valid
   res.status(200).json({ message: 'Token verified successfully' });
 });
 /// L O G I N   H A N D L E R 
 app.use("/api/auth", userRoute);
-app.use("/api/hotels", hotelRoute);
-app.use("/api/foods", foodRoute);
+app.use("/api/hotels",verifyToken, hotelRoute);
+app.use("/api/foods",verifyToken, foodRoute);
 
 
 mongoose.connect(
