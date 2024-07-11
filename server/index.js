@@ -26,7 +26,7 @@ app.use(
 	})
 );
 
-
+// middleware to verify JWT token
 const verifyToken = (req, res, next) => {
     const token = req.header("Authorization");
     
