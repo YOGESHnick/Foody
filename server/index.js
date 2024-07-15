@@ -47,9 +47,10 @@ const verifyToken = (req, res, next) => {
 app.post('/api/auth/verifyToken', verifyToken, (req, res) => {
   res.status(200).json({ message: 'Token verified successfully' });
 });
+
 /// L O G I N   H A N D L E R 
 app.use("/api/auth", userRoute);
-app.use("/api/foods",verifyToken, foodRoute);
+app.use("/api/foods", verifyToken, foodRoute);
 app.use("/api/hotels",verifyToken, hotelRoute);
 
 
